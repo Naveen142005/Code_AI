@@ -30,15 +30,3 @@ def find_entry_point(repo_path):
                     continue
 
     return None
-
-if __name__ == "__main__":
-    start_file = find_entry_point(REPO_PATH)
-    
-    if start_file:
-       print()
-    G =  expander().get_graph()
-    
-    all_connected = G.descendants(G, "file::"+start_file)
-
-    print(f"Start Point: Main")
-    print(f"All Connected Nodes: {all_connected}")

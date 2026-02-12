@@ -101,22 +101,3 @@ Think step by step:
                 'target_entity': None,
                 'reasoning': "Fallback due to classification error"
             }
-
-import sys
-import os
-
-if __name__ == "__main__":
-    
-    test_queries = [
-        "What does this project do?",               
-        "Show me the execution flow of the system", 
-        "What are the core modules?",               
-        "Where should I start?",                    
-        "Explain the flow of build()",              
-    ]
-
-    # print("\n====== ARCHITECT PATH END-TO-END TEST ======\n")
-
-    
-    classifier = QueryClassifier()
-    

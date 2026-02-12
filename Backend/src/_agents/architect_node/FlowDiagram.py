@@ -58,9 +58,6 @@ class FlowDiagramGenerator:
                     self.my_functions.add(func_name)
                     
             self.my_functions.add(key)
-        
-        for i in self.my_functions:
-            print(i)
             
         print(f" {len(self.my_functions)} user-defined functions.")
 

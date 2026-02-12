@@ -1,4 +1,5 @@
 
+from Backend.src._agents.architect_node.overview import ProjectSummarizer
 from src._agents.architect_node.FlowDiagram import FlowDiagramGenerator
 from src._agents.nodes.expand import expander
 from src._agents.nodes.final import Presenter
@@ -12,7 +13,6 @@ from src.ingestion.repo_loader import RepoLoader
 from src.store.bm25 import BM25Builder
 from src.store.graph import GraphBuilder
 from src.store.vector import VectorStoreBuilder
-from src.temp import ProjectSummarizer
 
 
 def repo_loader(state: setUpState) -> setUpState:
@@ -81,10 +81,9 @@ def router_node(state: QuestionAskingState) -> QuestionAskingState:
 def retriver_node(state: QuestionAskingState) -> QuestionAskingState:
     """Retrieve relevant code blocks"""
     query = state.get('query', '')
-    print('query ======>', query)
+    
     results = retriver().search(query)
-    print('-' * 70)
-    print('resuls' , results)
+
     return {'research_results': results}
 
 
@@ -95,7 +94,6 @@ def grader_node(state: QuestionAskingState) -> QuestionAskingState:
     
     grader_result = Grader().grade(query, results)
     #grader_result = (is_expendable, index, reason)
-    print ('grader result -> ', grader_result)
     is_expendable = grader_result[0]
     
     return {
@@ -111,8 +109,6 @@ def expander_node(state: QuestionAskingState) -> QuestionAskingState:
     results = state.get('research_results', [])
     
     idx = resolved[1]
-    print('idx =>', idx) 
-    print ('type ->' , type(idx))
     node_id = results[idx[0] - 1]
     
     expanded = expander().expand(node_id)

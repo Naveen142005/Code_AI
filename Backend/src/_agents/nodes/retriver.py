@@ -88,26 +88,26 @@ class retriver:
         return final_ranked_ids[:limit]
 
             
-if __name__ == '__main__':
-    while True:
-        r = retriver()
-        i = input('Enter the question: ')
+# if __name__ == '__main__':
+#     while True:
+#         r = retriver()
+#         i = input('Enter the question: ')
 
         
-        p = r.search(i)
+#         p = r.search(i)
         
-        # print('='*90)
-        # print('Retrived' , p)
-        # print('='*90)
+#         # print('='*90)
+#         # print('Retrived' , p)
+#         # print('='*90)
         
-        arr =   Grader().grade(i,p) 
+#         arr =   Grader().grade(i,p) 
         
-        res = expander().expand(p[arr[0] - 1])
+#         res = expander().expand(p[arr[0] - 1])
         
-        # print(res)
-        fi = Presenter().final(i,res)
+#         # print(res)
+#         fi = Presenter().final(i,res)
         
-        print(fi)
+#         print(fi)
         
         
         
